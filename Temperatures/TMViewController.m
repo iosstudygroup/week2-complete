@@ -14,6 +14,9 @@
  
  */
 
+#define kTempConstant       32
+#define kTempRatio          (5.0f/9.0f)
+
 #import "TMViewController.h"
 
 @interface TMViewController ()
@@ -39,7 +42,7 @@
     
     float startFTemp = [self.temperatureTextField.text floatValue];
     
-    float endTemp = (startFTemp - 32.0f) * (5.0f/9.0f);
+    float endTemp = (startFTemp - kTempConstant) * kTempRatio;
     
     NSLog(@"Ending temperature in C: %0.2f", endTemp);
     
@@ -50,7 +53,7 @@
 - (IBAction)convertCToFPressed:(id)sender {
     float startCTemp = [self.temperatureTextField.text floatValue];
     
-    float endTemp = startCTemp * (9.0f/5.0f) + 32;
+    float endTemp = startCTemp * (1/kTempRatio) + kTempConstant;
     
     NSLog(@"Ending temperature in F: %0.2f", endTemp);
     
