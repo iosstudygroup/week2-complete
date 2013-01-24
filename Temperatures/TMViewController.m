@@ -43,6 +43,8 @@
     
     NSLog(@"Ending temperature in C: %0.2f", endTemp);
     
+    self.outputLabel.text = [NSString stringWithFormat:@"%0.2f", endTemp];
+    
 }
 
 - (IBAction)convertCToFPressed:(id)sender {
@@ -51,5 +53,7 @@
     float endTemp = startCTemp * (9.0f/5.0f) + 32;
     
     NSLog(@"Ending temperature in F: %0.2f", endTemp);
+    
+    self.outputLabel.text = [NSString stringWithFormat:@"%0.2f", endTemp];
 }
 @end

@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *temperatureTextField;
 @property (weak, nonatomic) IBOutlet UIButton *farenheightButton;
 @property (weak, nonatomic) IBOutlet UIButton *celsiusButton;
+@property (weak, nonatomic) IBOutlet UILabel *outputLabel;
 - (IBAction)convertFToCPressed:(id)sender;
 - (IBAction)convertCToFPressed:(id)sender;
 
