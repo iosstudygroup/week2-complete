@@ -21,6 +21,7 @@
 
 @interface TMViewController ()
 
+- (void)processTemperatureConversionFromFtoC:(BOOL)fToC;
 
 @end
 
@@ -39,27 +40,34 @@
 }
 
 - (IBAction)convertFToCPressed:(id)sender {
-    [self.temperatureTextField resignFirstResponder];
-    
-    float startFTemp = [self.temperatureTextField.text floatValue];
-    
-    float endTemp = (startFTemp - kTempConstant) * kTempRatio;
-    
-    NSLog(@"Ending temperature in C: %0.2f", endTemp);
-    
-    self.outputLabel.text = [NSString stringWithFormat:@"%0.2f", endTemp];
+    [self processTemperatureConversionFromFtoC:YES];
     
 }
 
 - (IBAction)convertCToFPressed:(id)sender {
+    
+    [self processTemperatureConversionFromFtoC:NO];
+}
+
+- (void)processTemperatureConversionFromFtoC:(BOOL)fToC
+{
     [self.temperatureTextField resignFirstResponder];
     
-    float startCTemp = [self.temperatureTextField.text floatValue];
+    float startingTemp = [self.temperatureTextField.text floatValue];
     
-    float endTemp = startCTemp * (1/kTempRatio) + kTempConstant;
+    float endTemp = 0.0f;
     
-    NSLog(@"Ending temperature in F: %0.2f", endTemp);
+    if (fToC) {
+        endTemp = (startingTemp - kTempConstant) * kTempRatio;
+    }
+    else {
+        endTemp = startingTemp * (1/kTempRatio) + kTempConstant;
+    }
+    
+    
+    NSLog(@"Ending temperature: %0.2f", endTemp);
     
     self.outputLabel.text = [NSString stringWithFormat:@"%0.2f", endTemp];
 }
+
 @end
