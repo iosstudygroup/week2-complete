@@ -39,6 +39,7 @@
 }
 
 - (IBAction)convertFToCPressed:(id)sender {
+    [self.temperatureTextField resignFirstResponder];
     
     float startFTemp = [self.temperatureTextField.text floatValue];
     
@@ -51,6 +52,8 @@
 }
 
 - (IBAction)convertCToFPressed:(id)sender {
+    [self.temperatureTextField resignFirstResponder];
+    
     float startCTemp = [self.temperatureTextField.text floatValue];
     
     float endTemp = startCTemp * (1/kTempRatio) + kTempConstant;
