@@ -39,14 +39,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)convertFToCPressed:(id)sender {
-    [self processTemperatureConversionFromFtoC:YES];
-    
-}
-
-- (IBAction)convertCToFPressed:(id)sender {
-    
-    [self processTemperatureConversionFromFtoC:NO];
+- (IBAction)goPressed:(id)sender
+{
+    [self processTemperatureConversionFromFtoC:self.convertSegControl.selectedSegmentIndex == 0 ? YES :NO];
 }
 
 - (void)processTemperatureConversionFromFtoC:(BOOL)fToC
@@ -80,6 +75,12 @@
         return NO;
     }
     
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self processTemperatureConversionFromFtoC:self.convertSegControl.selectedSegmentIndex == 0 ? YES :NO];
     return YES;
 }
 
