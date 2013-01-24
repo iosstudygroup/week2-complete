@@ -70,4 +70,17 @@
     self.outputLabel.text = [NSString stringWithFormat:@"%0.2f", endTemp];
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString* newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (![newString floatValue]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
 @end

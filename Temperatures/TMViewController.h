@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TMViewController : UIViewController
+@interface TMViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *temperatureTextField;
 @property (weak, nonatomic) IBOutlet UIButton *farenheightButton;
