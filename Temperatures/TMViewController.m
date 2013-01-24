@@ -6,9 +6,18 @@
 //  Copyright (c) 2013 Michele Titolo. All rights reserved.
 //
 
+/*
+ 
+ FORMULAS:
+ °C  x  9/5 + 32 = °F
+ (°F  -  32)  x  5/9 = °C
+ 
+ */
+
 #import "TMViewController.h"
 
 @interface TMViewController ()
+
 
 @end
 
@@ -27,8 +36,20 @@
 }
 
 - (IBAction)convertFToCPressed:(id)sender {
+    
+    float startFTemp = [self.temperatureTextField.text floatValue];
+    
+    float endTemp = (startFTemp - 32.0f) * (5.0f/9.0f);
+    
+    NSLog(@"Ending temperature in C: %0.2f", endTemp);
+    
 }
 
 - (IBAction)convertCToFPressed:(id)sender {
+    float startCTemp = [self.temperatureTextField.text floatValue];
+    
+    float endTemp = startCTemp * (9.0f/5.0f) + 32;
+    
+    NSLog(@"Ending temperature in F: %0.2f", endTemp);
 }
 @end
