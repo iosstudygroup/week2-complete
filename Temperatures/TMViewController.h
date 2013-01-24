@@ -10,4 +10,7 @@
 
 @interface TMViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *temperatureTextField;
+@property (weak, nonatomic) IBOutlet UIButton *farenheightButton;
+@property (weak, nonatomic) IBOutlet UIButton *celsiusButton;
 @end
