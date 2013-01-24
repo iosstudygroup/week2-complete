@@ -26,4 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)convertFToCPressed:(id)sender {
+}
+
+- (IBAction)convertCToFPressed:(id)sender {
+}
 @end
