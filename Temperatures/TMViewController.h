@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *temperatureTextField;
 @property (weak, nonatomic) IBOutlet UILabel *outputLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *convertSegControl;
+
+
 - (IBAction)goPressed:(id)sender;
 
 @end
